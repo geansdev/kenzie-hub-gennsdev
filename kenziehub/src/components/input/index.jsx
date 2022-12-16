@@ -12,14 +12,13 @@ const InputForm = ({
   login,
 }) => {
   return (
-    <StyledInput>
+    <StyledInput border={border}>
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
         type={type}
         placeholder={placeholder}
         {...register}
-        border={border}
         desabled={desabled}
         {...login}
       />

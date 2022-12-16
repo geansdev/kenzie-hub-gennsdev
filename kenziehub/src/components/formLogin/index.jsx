@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "../button";
 import InputForm from "../input";
 import { useForm } from "react-hook-form";
 import { LoginSchema } from "./loginShema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { Api } from "../../services/api";
 import { StyledForm } from "../form";
+import { UserContext } from "../../contexts/userContext";
 
-const FormLoginPage = ({ setUser }) => {
-  const [loading, setLoading] = useState(false);
-  const navegate = useNavigate();
+const FormLoginPage = () => {
+  const { loading, userLogin } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -27,25 +25,8 @@ const FormLoginPage = ({ setUser }) => {
     resolver: yupResolver(LoginSchema),
   });
 
-  const userRegister = async (formData) => {
-    try {
-      setLoading(true);
-      const resp = await Api.post("sessions", formData);
-      toast.success("Conta logada com sucesso!");
-      window.localStorage.clear();
-      window.localStorage.setItem("@kenziehub-User", resp.data.token);
-      setUser(resp.data.user);
-      navegate("/home");
-    } catch (error) {
-      toast.error("Ops! Algo deu errado");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const submit = async (data) => {
-    await userRegister(data);
+    await userLogin(data);
     reset();
   };
 

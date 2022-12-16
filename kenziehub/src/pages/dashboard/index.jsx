@@ -2,10 +2,10 @@ import React from "react";
 import HeaderHome from "../../components/headerHome";
 import MainHome from "../../components/mainHome";
 
-const DashboardPage = ({ user, setUser }) => {
+const DashboardPage = () => {
   return (
     <>
-      <HeaderHome user={user} setUser={setUser} />
+      <HeaderHome />
       <MainHome />
     </>
   );

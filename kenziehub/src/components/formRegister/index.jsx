@@ -1,18 +1,16 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import Button from "../button";
 import InputForm from "../input";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterSchema } from "./registerShema";
-import { Api } from "../../services/api";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import { StyledForm } from "../form";
 import { StyledInput } from "../input/style";
+import { UserContext } from "../../contexts/userContext";
 
 const FormRegisterPage = () => {
-  const navegate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const { userRegister } = useContext(UserContext);
 
   const {
     register,
@@ -33,31 +31,8 @@ const FormRegisterPage = () => {
     resolver: yupResolver(RegisterSchema),
   });
 
-  const userRegister = async (formData) => {
-    try {
-      setLoading(true);
-      await Api.post("users", formData);
-      toast.success("Conta criada com sucesso!");
-      navegate("/");
-    } catch (error) {
-      toast.error("Ops! Algo deu errado");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const submit = async (data) => {
-    const forData = {
-      email: data.email,
-      password: data.password,
-      name: data.name,
-      bio: data.bio,
-      contact: data.contact,
-      course_module: data.course_module,
-    };
-    console.log(forData);
-    await userRegister(forData);
+    await userRegister(data);
     reset();
   };
 
@@ -73,7 +48,7 @@ const FormRegisterPage = () => {
         type="text"
         placeholder="Digite aqui seu nome"
         register={register("name")}
-        desabled={loading}
+        /* desabled={loading} */
         border={errors.name?.message ? "#E83F5B" : "#ffffff"}
       />
       {errors.name?.message && <p>{errors.name.message}</p>}
@@ -84,7 +59,7 @@ const FormRegisterPage = () => {
         type="email"
         placeholder="Digite aqui seu email"
         register={register("email")}
-        desabled={loading}
+        /* desabled={loading} */
         border={errors.email?.message ? "#E83F5B" : "#ffffff"}
       />
       {errors.email?.message && <p>{errors.email.message}</p>}
@@ -95,10 +70,10 @@ const FormRegisterPage = () => {
         type="password"
         placeholder="Digite aqui sua senha"
         register={register("password")}
-        desabled={loading}
+        /* desabled={loading} */
         border={errors.password?.message ? "#E83F5B" : "#ffffff"}
       />
-      {errors.passoword?.message && <p>{errors.passoword.message}</p>}
+      {errors.password?.message && <p>{errors.password.message}</p>}
 
       <InputForm
         id="confirmPassword"
@@ -106,11 +81,11 @@ const FormRegisterPage = () => {
         type="password"
         placeholder="Digite novamente sua senha"
         register={register("confirm_password")}
-        desabled={loading}
+        /* desabled={loading} */
         border={errors.confirm_password?.message ? "#E83F5B" : "#ffffff"}
       />
-      {errors.confirm_passoword?.message && (
-        <p>{errors.confirm_passoword.message}</p>
+      {errors.confirm_password?.message && (
+        <p>{errors.confirm_password.message}</p>
       )}
       <InputForm
         id="bio"
@@ -118,7 +93,7 @@ const FormRegisterPage = () => {
         type="text"
         placeholder="Fale sobre você"
         register={register("bio")}
-        desabled={loading}
+        /*  desabled={loading} */
         border={errors.bio?.message ? "#E83F5B" : "#ffffff"}
       />
       {errors.bio?.message && <p>{errors.bio.message}</p>}
@@ -129,7 +104,7 @@ const FormRegisterPage = () => {
         type="text"
         placeholder="Opção de contato"
         register={register("contact")}
-        desabled={loading}
+        /* desabled={loading} */
         border={errors.contact?.message ? "#E83F5B" : "#ffffff"}
       />
       {errors.contact?.message && <p>{errors.contact.message}</p>}
@@ -146,7 +121,7 @@ const FormRegisterPage = () => {
       </StyledInput>
       <Button
         type="submit"
-        disabled={loading}
+        /* disabled={loading} */
         button={loading ? "Cadastrando..." : "Cadastrar"}
       />
     </StyledForm>

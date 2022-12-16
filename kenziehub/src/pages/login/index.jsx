@@ -1,16 +1,15 @@
-import { useState } from "react";
 import FormLoginPage from "../../components/formLogin";
 import ImgKenzieLogo from "../../components/imgLogo";
 import { StyledLogin } from "./style";
 
-const LoginPage = ({ setUser }) => {
+const LoginPage = () => {
   return (
     <StyledLogin>
       <div>
         <picture>
           <ImgKenzieLogo />
         </picture>
-        <FormLoginPage setUser={setUser} />
+        <FormLoginPage />
       </div>
     </StyledLogin>
   );

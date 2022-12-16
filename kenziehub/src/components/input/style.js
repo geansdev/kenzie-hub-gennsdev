@@ -5,7 +5,7 @@ export const StyledInput = styled.fieldset`
    display: flex;
    flex-direction: column;
    gap: 0.7rem;
-     
+
     label{
       font-weight: 400;
       font-size: 12.182px;
@@ -13,13 +13,13 @@ export const StyledInput = styled.fieldset`
       color: var(--white);
       margin-bottom: 0.5rem;
     }
-    
+
     input, select{
        width:100%;
        height: 48px;
        padding-left: 0.5rem;
        background: var(--grey-2);
        border-radius: 4px;
-       border: ${props => `1.2182px solid ${props.border}`};
+       border: ${props => `1.3px solid ${props.border}`};
     }
 `

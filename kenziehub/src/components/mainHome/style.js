@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const StyledMain = styled.main`
+  width: 100vw;
+  height: 100vh;
  div{
     width: 100%;
     margin: 0 auto;
@@ -21,6 +23,26 @@ export const StyledMain = styled.main`
     font-weight: 400;
     font-size: 16px;
     color: var(--white);
+  }
+
+  .headerListTech{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  button{
+    width: 32px;
+    height: 32px;
+    background: var(--grey-3);
+    border-radius: 4px;
+  }
+
+  span{
+    font-weight: 600;
+    font-size: 16px;
+    color: #F8F9FA;
   }
 
   @media (max-width: 500px) {

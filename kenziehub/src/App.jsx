@@ -1,4 +1,3 @@
-import { useState } from "react";
 import RoutesMain from "./routes";
 import Globalstyled from "./styles/globalstyled";
 import { ToastContainer, toast } from "react-toastify";

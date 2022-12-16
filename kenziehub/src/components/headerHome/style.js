@@ -26,6 +26,8 @@ export const StyledNav = styled.nav`
 export const StyledHeader = styled.header`
  height: 118px;
  border-bottom: 0.8px solid var(--grey-3);
+ display: flex;
+ align-items: center;
    div{
       width: 100%;
       width:100%;

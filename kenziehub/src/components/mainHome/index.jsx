@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import { useContext } from "react";
+import { TechContext } from "../../contexts/techContext";
+import ListTechs from "../listTechs";
+import ModalAdd from "../modals/add";
 import { StyledMain } from "./style";
 
 const MainHome = () => {
+  const { openOrCloseModal, setOpenOrCloseModal } = useContext(TechContext);
   return (
     <StyledMain>
       <div>
-        <h2>Que pena! Estamos em desenvolvimento :(</h2>
-        <p>
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </p>
+        <div className="headerListTech">
+          <span>Tecnologias</span>
+          <button onClick={() => setOpenOrCloseModal(true)}>+</button>
+        </div>
+        <ListTechs />
       </div>
+      {openOrCloseModal && <ModalAdd />}
     </StyledMain>
   );
 };
