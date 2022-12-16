@@ -7,7 +7,7 @@ export const StylesListTechs = styled.ul`
   flex-direction: column;
   gap: 4px;
   padding: 1rem;
-  background: #343B41;
+  background: var(--grey-2);
   border-radius: 4px;
     li{
       display: flex;
@@ -16,7 +16,7 @@ export const StylesListTechs = styled.ul`
       width: 100%;
       height: 60px;
       
-      background: #121214;
+      background: var(--black-1);
       border-radius: 4px;
     }
 

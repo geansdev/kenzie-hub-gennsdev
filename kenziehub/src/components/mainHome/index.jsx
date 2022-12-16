@@ -11,7 +11,12 @@ const MainHome = () => {
       <div>
         <div className="headerListTech">
           <span>Tecnologias</span>
-          <button onClick={() => setOpenOrCloseModal(true)}>+</button>
+          <button
+            className="buttonOpenOrCloseModal"
+            onClick={() => setOpenOrCloseModal(true)}
+          >
+            +
+          </button>
         </div>
         <ListTechs />
       </div>

@@ -13,6 +13,8 @@ export default createGlobalStyle`
     --grey-4:#121214;
     --white: #ffffff;
     --black: #000000;
+    --black-1: #121214;
+    --backmodal: rgba(0,0,0,0.5);
   }
   
   *{

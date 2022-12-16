@@ -10,7 +10,6 @@ export const StyledMain = styled.main`
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
 
   h2, p{
@@ -32,7 +31,7 @@ export const StyledMain = styled.main`
     justify-content: space-between;
   }
 
-  button{
+  .buttonOpenOrCloseModal{
     width: 32px;
     height: 32px;
     background: var(--grey-3);
@@ -43,11 +42,5 @@ export const StyledMain = styled.main`
     font-weight: 600;
     font-size: 16px;
     color: #F8F9FA;
-  }
-
-  @media (max-width: 500px) {
-    h2, p{
-    display: none;
-    }
   }
 `

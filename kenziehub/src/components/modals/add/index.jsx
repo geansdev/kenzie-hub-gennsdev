@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../../contexts/techContext";
+import { StyledButton } from "../../button/style";
 import { StyledForm } from "../../form";
 import InputForm from "../../input";
+import { StyledInput } from "../../input/style";
+import { StylesModalAdd } from "./style";
 
 const ModalAdd = () => {
   const { setOpenOrCloseModal, addNewTech } = useContext(TechContext);
@@ -14,11 +17,15 @@ const ModalAdd = () => {
     },
   });
   return (
-    <section>
+    <StylesModalAdd>
       <div>
         <div>
           <h2>Cadastrar Tecnologia</h2>
-          <button type="button" onClick={() => setOpenOrCloseModal(false)}>
+          <button
+            className="btnCloseModal"
+            type="button"
+            onClick={() => setOpenOrCloseModal(false)}
+          >
             X
           </button>
         </div>
@@ -30,7 +37,7 @@ const ModalAdd = () => {
             label="Nome"
             register={register("title")}
           />
-          <fieldset>
+          <StyledInput>
             <label htmlFor="selectStatus">Selecionar status</label>
             <select
               name="selectStatus"
@@ -41,11 +48,11 @@ const ModalAdd = () => {
               <option>Intermediário</option>
               <option>Avançado</option>
             </select>
-          </fieldset>
-          <button type="submit">Cadastrar Tecnologia</button>
+          </StyledInput>
+          <StyledButton type="submit">Cadastrar Tecnologia</StyledButton>
         </StyledForm>
       </div>
-    </section>
+    </StylesModalAdd>
   );
 };
 
