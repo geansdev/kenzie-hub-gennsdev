@@ -8,7 +8,7 @@ const ListTechs = () => {
 
   return (
     <StylesListTechs>
-      {userTechs.map((ele) => (
+      {userTechs?.map((ele) => (
         <li key={ele.id}>
           <h2>{ele.title}</h2>
           <div className="divDeleteButton">
