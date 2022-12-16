@@ -40,7 +40,7 @@ export const UserProvider = ({ children }) => {
       toast.success("Conta logada com sucesso!");
       localStorage.setItem("@kenziehub-User", resp.data.token);
       setUser(resp.data.user);
-      setUserTechs(resp.data.techs);
+      setUserTechs(resp.data.user.techs);
       navigate("/home");
     } catch (error) {
       toast.error("Ops! Algo deu errado");
