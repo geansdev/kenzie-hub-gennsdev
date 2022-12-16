@@ -14,7 +14,7 @@ export const TechProvider = ({ children }) => {
     try {
       Api.defaults.headers.Authorization = `Bearer ${token}`;
       const resp = await Api.post("users/techs", data);
-      setUserTechs((oldTechs) => [...oldTechs, resp.data]);
+      setUserTechs((old) => [...old, resp.data]);
       toast.success("Tecnologia adicionada com sucesso!");
     } catch (error) {
       toast.error("Ops! Algo deu errado");

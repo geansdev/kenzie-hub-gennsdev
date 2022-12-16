@@ -21,5 +21,8 @@ export const StyledInput = styled.fieldset`
        background: var(--grey-2);
        border-radius: 4px;
        border: ${props => `1.3px solid ${props.border}`};
+       font-weight: 400;
+       font-size: 17px;
+       color: var(--grey-0);
     }
 `
